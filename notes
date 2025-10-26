@@ -1,0 +1,48 @@
+En Next.js, cada archivo dentro de pages/ representa una ruta. index.js es la página principal.
+
+Hook useState:
+- Es una funcion de React que te permite crear una variable de estadoo
+time = el valor de la hora actual
+setTime = funcion para actualizar time
+al user setTime el componente se vuelve a renderizar
+
+Hook useEffect:
+
+
+
+DOM: Document Object Model
+Es la estructura jerarquica que los navegadores crean para representar un documento html
+Ejemplo:
+<>body>
+  <>h1>Hola</>
+</>
+
+El navegador lo interpreta como un árbol de objetos JS:
+document
+└── body
+    └── h1 ("Hola")
+
+En JavaScript tradicional puedes acceder a estos elementos así:
+const titulo = document.querySelector('h1');
+titulo.style.color = 'red';
+
+Porque en react no lo utilizamos así?
+ react se encarga del DOM, tu solo describes como debe lucir la interfaz y react lo actualiza
+ entonces: document.querySelector('.reloj').style.color = 'red';
+
+useRef es un hook de React que te permite referenciar directamente un elemento del DOM
+
+document.querySelector() useRef().current
+
+ej: 
+
+export default function App() {
+  const tituloRef = useRef(); // crea una referencia
+
+  useEffect(() => {
+    // cuando el componente se monta, accedemos al DOM
+    tituloRef.current.style.color = 'red';
+  }, []);
+
+  return <>>h1 ref={tituloRef}>Hola mundo</>;
+}
